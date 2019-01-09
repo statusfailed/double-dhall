@@ -67,5 +67,5 @@ main = do
                   . Lens.set Dhall.startingContext context
       inputSettings = addSettings Dhall.defaultInputSettings 
 
-  x <- Dhall.inputWithSettings inputSettings Dhall.auto text
-  Data.Text.IO.putStrLn x
+  f <- Dhall.inputWithSettings inputSettings Dhall.auto text :: IO (Double -> Double -> Dhall.Text)
+  Data.Text.IO.putStrLn (f 1.0 2.0)
