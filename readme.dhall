@@ -11,10 +11,10 @@ It adds four functions:
 * `Double/mul`
 * `Double/div`
 
-Which can be used to do double arithmetic. [readme.dhall](readme.dhall)
-contains a demo of these, which generates this very file (README.md).
+[readme.dhall](readme.dhall) contains usage examples of these functions, and is
+used to generate this file (README.md).
 
-Here are examples of using the Double functions:
+Here are some typical examples of how you might use these functions:
 
     Double/add 2.0 3.0 = ${Double/show (Double/add 2.0 3.0)}
     Double/sub 1.0 0.5 = ${Double/show (Double/sub 1.0 0.5)}
