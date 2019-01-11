@@ -66,6 +66,13 @@ main = do
       addSettings = Lens.set Dhall.normalizer normalizer
                   . Lens.set Dhall.startingContext context
       inputSettings = addSettings Dhall.defaultInputSettings 
+      interpretOptions =
+          Dhall.defaultInterpretOptions
+              { Dhall.inputNormalizer = normalizer }
 
-  f <- Dhall.inputWithSettings inputSettings Dhall.auto text :: IO (Double -> Double -> Dhall.Text)
+  f <- Dhall.inputWithSettings
+          inputSettings
+          (Dhall.autoWith interpretOptions)
+          text
+       :: IO (Double -> Double -> Dhall.Text)
   Data.Text.IO.putStrLn (f 1.0 2.0)
